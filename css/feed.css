@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.feed-video {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  background-color: rgb(224, 224, 224);
+  overflow: hidden;
+}
+
+.feed-background {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.feed-background video {
+  position: absolute;
+  height: 100dvh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.feedContent {
+  position: absolute;
+  z-index: 10;
+  width: 100vw;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+}
+
+.lookName {
+  position: absolute;
+  /* left: 20px;
+  bottom: 160px; */
+  left: 28px;
+  bottom: 131px;
+  color: white;
+  font-size: 30px;
+  font-family: "Bebas Neue";
+  letter-spacing: 3px;
+}
+
+.feedPosts {
+  position: absolute;
+  left: 30px;
+  /* bottom: 120px; */
+  bottom: 112px;
+  display: flex;
+  align-items: center;
+}
+
+.posts {
+  color: #fff;
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 300;
+}
+
+.postNumber {
+  color: #fff;
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 300;
+}
+
+.followButton {
+  color: #fff;
+  font-size: 14px;
+  padding-left: 5px;
+  font-weight: 800;
+  font-family: "Inter";
+}
+
+.shareButton {
+  /* color: #808080; */
+  color: white;
+  opacity: 50%;
+  font-size: 14px;
+  font-family: "Bebas Neue";
+  /* padding: 20px 0; */
+  padding: 16px 0;
+  position: absolute;
+  left: 30px;
+  bottom: 60px;
+}
+
+.rateContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100vw - 60px);
+  position: absolute;
+  left: 30px;
+  bottom: 20px;
+}
+
+.rating-label {
+  font-family: "Bebas Neue";
+  font-size: 18px;
+  color: #fff;
+  flex: 1;
+  text-align: center;
+}
+
+.rate {
+  width: 100%;
+  opacity: 0;
+  height: 37px;
+}
+
+.rateButton {
+  color: #fff;
+  font-family: "Bebas Neue";
+  font-size: 28px;
+  opacity: 1;
+}

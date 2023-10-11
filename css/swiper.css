@@ -1,0 +1,15 @@
+.pages-swiper-container,
+.videos-swiper-container {
+  width: 100vw;
+  height: 100dvh;
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-slide,
+.feed-video {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}

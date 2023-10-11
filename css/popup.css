@@ -1,0 +1,77 @@
+body {
+    position: relative;
+}
+
+#safari-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    height: 300px;
+    width: 200px;
+    background-color: white;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+
+.vector-img {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    user-select: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.icon-img {
+    position: absolute;
+    top: 30px;
+    height: 36px;
+    width: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    user-select: none;
+}
+
+.popup-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.popup-title {
+    font-size: 22px;
+    font-family: "Bebas Neue";
+    line-height: 24px;
+}
+
+.popup-text {
+    font-size: 12px;
+    font-family: "Inter";
+    font-weight: 300;
+    line-height: 14px;
+    font-weight: 400;
+    text-align: center;
+    width: 190px;
+    margin-top: 12px;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.0);
+    z-index: 11;
+    overflow: hidden;
+    display: none;
+}

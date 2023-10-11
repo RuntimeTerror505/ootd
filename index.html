@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  <link rel="manifest" href="./manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- fullscreen -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="apple-touch-icon" href="./assets/manifest.png">
+  <!-- linked files -->
+  <meta name="robots" content="noindex, nofollow" />
+  <!-- <link rel="manifest" href="./manifest.json" />  -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./fonts/fonts.css" />
+  <link rel="stylesheet" href="./css/swiper.css" />
+  <link rel="stylesheet" href="./css/camera.css" />
+  <link rel="stylesheet" href="./css/recording.css" />
+  <link rel="stylesheet" href="./css/feed.css" />
+  <link rel="stylesheet" href="./css/leaderboard.css" />
+  <link rel="stylesheet" href="./css/popup.css" />
+
+  <!-- SEO -->
+  <title>ootd</title>
+  <meta name="description" content="Post your Look" />
+  <meta name="keywords" content="ootd, ootd, outfit of the day" />
+  <!-- Open Graph Tags (for social sharing) -->
+  <meta property="og:title" content="ootd" />
+  <meta property="og:description" content="Post your Look" />
+  <meta property="og:image" content="" />
+  <meta property="og:url" content="https://ootd.majestic.ge/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <!-- Twitter Card Tags (for Twitter sharing) -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ootd" />
+  <meta name="twitter:description" content="Post your Look" />
+  <meta name="twitter:image" content="" />
+  <!-- libraries -->
+  <!-- swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="overlay" class="overlay"></div>
+  <div id="safari-popup" style="display: block;">
+    <img src="./assets/Vector.png" class="vector-img" />
+    <img src="./assets/Icon.png" class="icon-img" />
+    <div class="popup-text-wrapper" onclick="installPWA()">
+      <p class="popup-title">DOWNLOAD OOTD</p>
+      <p class="popup-text">Tap and "Add to Home Screen" to open app</p>
+    </div>
+  </div>
+
+  <div class="swiper pages-swiper-container">
+    <div class="swiper-wrapper" id="swiper">
+      <div class="swiper-slide page">
+        <div id="camera">
+          <div id="background">
+            <!-- live streaming -->
+            <video id="streaming" class="absoluteCenter" autoplay playsinline></video>
+          </div>
+          <div id="ui">
+            <!-- change camera  -->
+            <button id="cameraSwap">
+              <img src="./assets/change.png" alt="Swap Camera" />
+            </button>
+            <!-- start recording  -->
+            <button id="startRecording">
+              <div id="recording-started">
+                <svg height="60" width="60">
+                  <circle class="circle" cx="30" cy="30" r="26" stroke="yellow" stroke-width="3" fill-opacity="0" />
+                </svg>
+                <div class="logo"></div>
+              </div>
+            </button>
+
+            <!-- delete video  -->
+            <button id="delete" class="textButton">delete</button>
+
+            <!-- save video  -->
+            <button id="save" class="textButton">save</button>
+
+            <!-- save video  -->
+            <button id="post" class="textButton">post</button>
+
+            <!-- mute/unmute video  -->
+            <button id="mute" class="textButton">no audio</button>
+
+            <!-- saved looks  -->
+            <button id="savedLooks" class="textButton">saved looks</button>
+            <div id="savedLooksContainer"></div>
+            <!-- add category for video -->
+            <input type="text" id="nameYourLook" placeholder="Name your look" />
+          </div>
+        </div>
+      </div>
+      <!-- Feed -->
+      <div class="swiper-slide page" id="swiper">
+        <div class="swipe videos-swiper-container">
+          <div class="swiper-wrapper video-container"></div>
+        </div>
+      </div>
+      <!--LEADERBOARD-->
+      <div class="swiper-slide page">
+        <div class="lb-buttons">
+          <button class="lb-btn">download</button>
+          <button class="lb-btn">delete</button>
+          <button class="lb-btn">report</button>
+        </div>
+        <div class="leaderboard">
+          <div class="lb-header">
+            <p id="look-filter">All looks</p>
+            <p class="lb">leaderboard</p>
+            <p id="date"></p>
+          </div>
+
+          <div id="lb-container">Loading...</div>
+        </div>
+        <div class="look-leaderboard">
+          <div class="look-header">
+            <p id="look-name"></p>
+            <p class="look-lb">leaderboard</p>
+          </div>
+          <div id="look-container">Loading...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+<script src="./js/api_links.js"></script>
+<script src="./js/api_requests.js"></script>
+<script src="./js/swiper.js"></script>
+<script src="./js/camera.js"></script>
+<script src="./js/feed.js"></script>
+<script src="./js/leaderboard.js"></script>
+<script src="./js/service-workers.js"></script>
+<!-- <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./js/service-workers.js", { path: "/" });
+  }
+</script> -->
+
+<script>
+  if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
+    const popup = document.getElementById('safari-popup');
+    document.getElementById('overlay').style.display = 'block';
+    const body = document.body;
+    popup.style.display = 'block';
+  } else {
+    const popup = document.getElementById('safari-popup');
+    popup.style.display = 'none';
+  }
+
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    const popup = document.getElementById('safari-popup');
+    document.getElementById('overlay').style.display = 'none';
+    popup.style.display = 'none';
+  }
+</script>
+
+</html>
