@@ -29,8 +29,8 @@ body {
 .icon-img {
     position: absolute;
     top: 30px;
-    height: 36px;
-    width: 36px;
+    height: 76px;
+    width: 76px;
     left: 50%;
     transform: translateX(-50%);
     user-select: none;
@@ -42,9 +42,10 @@ body {
     align-items: center;
     z-index: 10;
     position: absolute;
-    bottom: 50px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+    width: 100%;
 }
 
 .popup-title {
@@ -58,10 +59,15 @@ body {
     font-family: "Inter";
     font-weight: 300;
     line-height: 14px;
-    font-weight: 400;
     text-align: center;
-    width: 190px;
     margin-top: 12px;
+    width: 180px;
+}
+
+.share-icon {
+    height: 18px;
+    width: 18px;
+    margin-top: 6px;
 }
 
 #overlay {
