@@ -15,8 +15,6 @@ if ('Notification' in window && Notification.permission !== 'denied') {
     Notification.requestPermission()
         .then(function (permission) {
             if (permission === 'granted') {
-                // Дозвіл отримано, тут можна відображати сповіщення
-
                 // Показати сповіщення #1
                 showNotification("You’re now #1 in 'category name' xx");
 
