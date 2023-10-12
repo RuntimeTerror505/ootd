@@ -1,0 +1,16 @@
+.pages-swiper-container,
+.videos-swiper-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(252, 252, 252);
+}
+
+.swiper-slide,
+.feed-video {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}

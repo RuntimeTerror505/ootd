@@ -1,0 +1,68 @@
+#startRecording {
+  width: 90px;
+  height: 90px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  border: 5px solid white;
+  transition: all 1s;
+  user-select: none;
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+}
+
+#startRecording.active {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.74);
+  border: none;
+}
+#recording-started {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-90deg) scale(2.5);
+}
+
+#recording-started.active .circle {
+  animation: stroke 14s ease-out forwards;
+}
+svg,
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: fadeIn 14s linear forwards;
+  animation-delay: 1s;
+}
+
+.circle {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+@keyframes stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
