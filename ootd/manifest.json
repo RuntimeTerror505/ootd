@@ -4,8 +4,8 @@
   "description": "Post your Look",
   "start_url": "/?fullscreen=true",
   "display": "standalone",
-  "background_color": "#FCE4F4",
-  "theme_color": "#dddddd",
+  "background_color": "#DBDBDB",
+  "theme_color": "#DBDBDB",
   "orientation": "portrait",
   "icons": [
     {

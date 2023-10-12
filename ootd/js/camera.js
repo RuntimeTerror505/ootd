@@ -83,8 +83,8 @@ function startRecording() {
     type: "video",
     mimeType: "video/mp4",
     video: {
-      width: 640,
-      height: 480,
+      width: 480,
+      height: 800,
     },
     canvas: {
       width: 640,
@@ -113,6 +113,7 @@ function enableCamera() {
       C_STREAMING.muted = muted;
       C_STREAMING.srcObject = stream;
       C_SWAP_CAMERA.style.display = "block";
+      swapCamera();
     })
     .catch(function (error) {
       console.error("Error accessing environment camera:", error);
@@ -127,6 +128,7 @@ function enableCamera() {
           C_STREAMING.muted = muted;
           C_STREAMING.srcObject = stream;
           C_SWAP_CAMERA.style.display = "block";
+          swapCamera();
         })
         .catch(function (error) {
           console.error("Error accessing user camera:", error);
@@ -280,7 +282,7 @@ function addQuotesIfNeeded(event) {
     }
     if (!inputString.endsWith('"')) {
       inputString = inputString + '"';
-    } 
+    }
     event.target.value = inputString;
   }
 }

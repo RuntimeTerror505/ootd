@@ -1,0 +1,20 @@
+name: deploy-to-production
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avzr --delete --omit-dir-times --no-perms
+          path: ootd/
+          remote_path: /home/gitdeploy/deployment/html/ootd.majestic.ge/
+          remote_host: majestic.ge
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}

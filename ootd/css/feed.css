@@ -39,9 +39,7 @@
 
 .lookName {
   position: absolute;
-  /* left: 20px;
-  bottom: 160px; */
-  left: 28px;
+  left: 16px;
   bottom: 131px;
   color: white;
   font-size: 30px;
@@ -51,7 +49,7 @@
 
 .feedPosts {
   position: absolute;
-  left: 30px;
+  left: 20px;
   /* bottom: 120px; */
   bottom: 112px;
   display: flex;
@@ -74,22 +72,21 @@
 
 .followButton {
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   padding-left: 5px;
-  font-weight: 800;
+  font-weight: 900;
   font-family: "Inter";
+  letter-spacing: 1.5px;
 }
 
 .shareButton {
-  /* color: #808080; */
   color: white;
   opacity: 50%;
   font-size: 14px;
   font-family: "Bebas Neue";
-  /* padding: 20px 0; */
   padding: 16px 0;
   position: absolute;
-  left: 30px;
+  left: 22px;
   bottom: 60px;
 }
 

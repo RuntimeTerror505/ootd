@@ -1,0 +1,64 @@
+#full-screen {
+  width: 100vw;
+  height: 100vh;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  transition: all 0.5s;
+  background-color: white;
+}
+
+.rankingFull {
+  color: white;
+  font-size: 30px;
+  font-family: "Bebas Neue";
+  letter-spacing: 3px;
+  white-space: nowrap;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 100px;
+}
+
+.lookNameFull {
+  color: white;
+  font-size: 20px;
+  font-family: "Bebas Neue";
+  letter-spacing: 3px;
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 70px;
+}
+
+.shareButtonFull {
+  color: white;
+  opacity: 50%;
+  font-size: 14px;
+  font-family: "Bebas Neue";
+  padding: 16px 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+}
+
+.back-button {
+  color: white;
+  font-size: 20px;
+  font-family: "Bebas Neue";
+  letter-spacing: 3px;
+  white-space: nowrap;
+  position: fixed;
+  top: 70px;
+  left: 24px;
+  z-index: 300;
+}

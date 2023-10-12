@@ -68,6 +68,9 @@ body {
     height: 18px;
     width: 18px;
     margin-top: 6px;
+    position: absolute;
+    bottom: 13px;
+    left: 50px;
 }
 
 #overlay {

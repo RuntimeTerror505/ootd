@@ -14,4 +14,5 @@ body {
   position: fixed;
   padding-top: constant(safe-area-inset-top);
   padding-top: env(safe-area-inset-top);
+  background-color: rgb(252, 252, 252);
 }

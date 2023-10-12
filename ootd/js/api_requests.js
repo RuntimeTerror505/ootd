@@ -46,7 +46,7 @@ const followLook = async (userId, lookId) => {
 const uploadVideo = async (videoFile, look, user_id) => {
   const formData = new FormData();
   formData.append("video", videoFile, "recorded-video.mp4");
-  formData.append("look", look);
+  formData.append("look", look.trim());
   formData.append("user_id", user_id);
   try {
     const response = await axios.post(`${BASE_URL_LINK}/video/post`, formData, {
@@ -70,6 +70,30 @@ const uploadVideo = async (videoFile, look, user_id) => {
     throw error;
   }
 };
+
+async function convertToMP4(inputVideoBlob) {
+  // Initialize FFmpeg
+  const { createFFmpeg, fetchFile } = FFmpeg;
+  const ffmpeg = createFFmpeg({ log: true });
+
+  // Load FFmpeg
+  await ffmpeg.load();
+
+  // Write the input video to a virtual file system
+  ffmpeg.FS("writeFile", "input.mkv", await fetchFile(inputVideoBlob));
+
+  // Run FFmpeg to convert to MP4
+  await ffmpeg.run("-i", "input.mkv", "output.mp4");
+
+  // Read the output MP4 file
+  const outputData = ffmpeg.FS("readFile", "output.mp4");
+
+  // Clean up
+  ffmpeg.FS("unlink", "input.mkv");
+  ffmpeg.FS("unlink", "output.mp4");
+
+  return new Blob([outputData.buffer], { type: "video/mp4" });
+}
 
 const uploadMultipleVideos = async (user_id, videoFile, numberOfVideosToUpload) => {
   try {
@@ -245,5 +269,3 @@ const checkAndUpdateUser = async () => {
     }
   }
 };
-
-

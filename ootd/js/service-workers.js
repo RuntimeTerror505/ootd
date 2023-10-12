@@ -1,15 +1,13 @@
-const CACHE_NAME = `ootd v15`;
+const CACHE_NAME = `ootd v1`;
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
     (async () => {
       const cache = await caches.open(CACHE_NAME);
-      cache.addAll(["/", "javascript/api_requests.js", "javascript/cookies.js", "javascript/initialization.js", "javascript/camera.js", "javascript/categories.js", "javascript/feed.js", "javascript/leaderboard.js", "/javascript/videos.js", "/styles/style.css", "/styles/reset.css", "/fonts/fonts.css", "/javascript/api.js"]);
-      // Remove outdated caches (if any).
+      cache.addAll(["/", "javascript/api_requests.js", "javascript/api_links.js", "javascript/camera.js", "javascript/feed.js", "javascript/leaderboard.js", "/styles/style.css", "/styles/reset.css", "/fonts/fonts.css", "/javascript/api.js"]);
       const cacheNames = await caches.keys();
       await Promise.all(cacheNames.filter((name) => name !== CACHE_NAME).map((name) => caches.delete(name)));
 
-      // Activate the new service worker immediately.
       self.skipWaiting();
       self.clients.claim();
     })()
@@ -40,16 +38,3 @@ self.addEventListener("fetch", (event) => {
     })()
   );
 });
-
-
-// self.addEventListener('push', function (event) {
-//   console.log(event);
-//   const options = {
-//     body: event.data.text(),
-//     icon: './assets/mahestic.png',
-//   };
-
-//   event.waitUntil(
-//     self.registration.showNotification('Notification', options)
-//   );
-// });

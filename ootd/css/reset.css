@@ -11,6 +11,7 @@
 video,
 body {
   max-width: none !important;
+  background-color: #DBDBDB;
 }
 
 button {

@@ -32,7 +32,7 @@ function initSwiper() {
         F_FEED_CONTAINER.appendChild(div);
       } else {
         addVideosToFeed(videos);
-
+        FEED_SWIPER.slides[0].querySelector(".feedContent").classList.add("makeVisible");
         // const firstVideoSlide = FEED_SWIPER.slides[0];
         // if (firstVideoSlide) {
         //   const firstVideoId = firstVideoSlide.querySelector("video").getAttribute("id");
@@ -79,7 +79,7 @@ function addVideosToFeed(array) {
     VIDEO.appendChild(videoWrapper);
 
     videoWrapper.innerHTML = ` <video id="${video._id}" preload="metadata" playsinline loop autoplay muted>
-    <source src="${BASE_URL_LINK}/videos/video-1696970442343-595107045.mp4" type="video/mp4">
+    <source src="${BASE_URL_LINK}/videos/${video.cid}" type="video/mp4">
   </video>`;
 
     const content = document.createElement("div");
@@ -120,6 +120,9 @@ function addVideosToFeed(array) {
     const share = document.createElement("button");
     share.classList.add("shareButton");
     share.textContent = "Download";
+    share.look = name;
+    share.videoURL = `${BASE_URL_LINK}/videos/${video.cid}`;
+    share.addEventListener("click", saveFile);
     content.appendChild(share);
 
     const rateContainer = document.createElement("div");
@@ -180,4 +183,24 @@ function addLoadingVideos() {
   p.textContent = "Loading videos...";
   div.appendChild(p);
   F_FEED_CONTAINER.appendChild(div);
+}
+
+function saveFile() {
+  const url = event.target.videoURL;
+  const filename = "ootd_" + event.target.look + ".mp4"; // Include the correct file extension
+  var xhr = new XMLHttpRequest();
+  xhr.responseType = "blob";
+  xhr.onload = function () {
+    var blob = new Blob([xhr.response], { type: "video/mp4" }); // Set the content type to video/mp4
+    var url = window.URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+  };
+  xhr.open("GET", url);
+  xhr.send();
 }
