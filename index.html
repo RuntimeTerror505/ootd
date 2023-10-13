@@ -157,4 +157,16 @@
   }
 </script>
 
+<!-- <script>
+  self.addEventListener('push', function (event) {
+    console.log(event);
+    const notification = event.data.json().notification;
+    console.log(notification);
+    self.registration.showNotification(notification.title, {
+      body: notification.body,
+      icon: notification.icon
+    });
+  });
+</script> -->
+
 </html>

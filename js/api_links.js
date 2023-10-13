@@ -1,4 +1,4 @@
-const PROD = "https://api.ootd.majestic.ge/api/ootd";
+const PROD = "https://api.ootd.ge/api/ootd";
 const PROD_STORAGE = "https://api.ootd.majestic.ge/api/ootd/videos/";
 
 const LOCAL = "http://localhost:3001/api/ootd";

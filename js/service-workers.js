@@ -15,10 +15,10 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+
   event.respondWith(
     (async () => {
       const cache = await caches.open(CACHE_NAME);
-
       // Get the resource from the cache.
       const cachedResponse = await cache.match(event.request);
       if (cachedResponse) {
@@ -38,3 +38,20 @@ self.addEventListener("fetch", (event) => {
     })()
   );
 });
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(self.clients.claim());
+});
+
+// service-worker.js
+self.addEventListener('push', function (event) {
+  const options = {
+    body: event.data.text(),
+    icon: '../assets/majestic.png'
+  };
+
+  event.waitUntil(
+    self.registration.showNotification('Заголовок сповіщення', options)
+  );
+});
+
