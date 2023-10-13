@@ -48,7 +48,7 @@
 
 <body>
   <div id="overlay" class="overlay"></div>
-  <!-- <div id="safari-popup" style="display: block">
+  <div id="safari-popup" style="display: block">
     <img src="./assets/Vector.png" class="vector-img" />
     <img src="./assets/Icon.png" class="icon-img" />
     <div class="popup-text-wrapper" onclick="installPWA()">
@@ -59,7 +59,7 @@
         and "Add to Home Screen" to open app
       </p>
     </div>
-  </div> -->
+  </div>
   <div class="swiper pages-swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide page">
@@ -139,7 +139,7 @@
 <script src="./js/feed.js"></script>
 <script src="./js/leaderboard.js"></script>
 <script src="./js/notification.js"></script>
-<!-- <script>
+<script>
   if (navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Chrome") === -1) {
     const popup = document.getElementById("safari-popup");
     document.getElementById("overlay").style.display = "block";
@@ -155,18 +155,6 @@
     document.getElementById("overlay").style.display = "none";
     popup.style.display = "none";
   }
-</script> -->
-
-<!-- <script>
-  self.addEventListener('push', function (event) {
-    console.log(event);
-    const notification = event.data.json().notification;
-    console.log(notification);
-    self.registration.showNotification(notification.title, {
-      body: notification.body,
-      icon: notification.icon
-    });
-  });
-</script> -->
+</script>
 
 </html>
